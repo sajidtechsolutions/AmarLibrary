@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>সুচিপাতা | ডিসিপ্লিন VS মটিভেশন</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .toc-container {
+            max-width: 800px;
+            margin: 48px auto;
+            padding: 0 24px;
+        }
+
+        .toc-header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .toc-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #b48a00;
+            margin-bottom: 16px;
+        }
+
+        .toc-subtitle {
+            font-size: 1.2rem;
+            color: #666;
+        }
+
+        .toc-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .toc-item {
+            margin-bottom: 24px;
+            position: relative;
+            padding-left: 24px;
+        }
+
+        .toc-item::before {
+            content: '★';
+            position: absolute;
+            left: 0;
+            color: #ffd700;
+            font-size: 1.2rem;
+        }
+
+        .toc-link {
+            display: block;
+            padding: 16px 24px;
+            background: linear-gradient(120deg, #fffbe6 0%, #ffe082 100%);
+            border-radius: 12px;
+            text-decoration: none;
+            color: #222;
+            font-size: 1.1rem;
+            font-weight: 500;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 2px solid #ffd700;
+            box-shadow: 0 4px 24px #ffd70022;
+        }
+
+        .toc-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 32px #ffd70044;
+        }
+
+        .toc-link.last-read {
+            background: linear-gradient(120deg, #4a90e2 0%, #6a82fb 100%);
+            color: white;
+            border: 2px solid #4a90e2;
+            box-shadow: 0 4px 24px #4a90e222;
+        }
+
+        body.dark-theme .toc-title {
+            color: #ffd700;
+        }
+
+        body.dark-theme .toc-subtitle {
+            color: #aaa;
+        }
+
+        body.dark-theme .toc-link {
+            background: linear-gradient(120deg, rgba(30,30,30,0.95) 0%, rgba(60,60,60,0.85) 100%);
+            color: #ffe082;
+            border: 2px solid #ffd700;
+        }
+
+        body.dark-theme .toc-link.last-read {
+            background: linear-gradient(120deg, #4a90e2 0%, #6a82fb 100%);
+            color: white;
+            border: 2px solid #4a90e2;
+        }
+
+        @media (max-width: 768px) {
+            .toc-container {
+                padding: 0 16px;
+            }
+
+            .toc-title {
+                font-size: 2rem;
+            }
+
+            .toc-subtitle {
+                font-size: 1rem;
+            }
+
+            .toc-link {
+                font-size: 1rem;
+                padding: 12px 20px;
+            }
+        }
+    </style>
+</head>
+<body class="dark-theme">
+    <div class="toc-container">
+        <div class="toc-header">
+            <h1 class="toc-title">ডিসিপ্লিন VS মটিভেশন</h1>
+            <p class="toc-subtitle">সুচিপাতা</p>
+        </div>
+        <ul class="toc-list" id="toc-list">
+            <!-- Table of contents will be injected here by JS -->
+        </ul>
+    </div>
+    <script src="discipline-vs-motivation.js"></script>
+    <script>
+        // Get the table of contents list element
+        const tocList = document.getElementById('toc-list');
+        const lastReadChapter = parseInt(localStorage.getItem('lastReadChapter')) || 1;
+        
+        // Populate the table of contents
+        disciplineBook.toc.forEach((chapter, index) => {
+            const li = document.createElement('li');
+            li.className = 'toc-item';
+            const isLastRead = index + 1 === lastReadChapter;
+            li.innerHTML = `
+                <a href="book.html?chapter=${index + 1}" class="toc-link ${isLastRead ? 'last-read' : ''}">
+                    ${chapter.title}
+                </a>
+            `;
+            tocList.appendChild(li);
+        });
+
+        // Sync theme with localStorage
+        const theme = localStorage.getItem('theme');
+        if (theme === 'dark-theme') {
+            document.body.classList.add('dark-theme');
+            document.body.classList.remove('light-theme');
+        } else if (theme === 'light-theme') {
+            document.body.classList.remove('dark-theme');
+            document.body.classList.add('light-theme');
+        } else {
+            document.body.classList.remove('light-theme');
+            document.body.classList.add('dark-theme');
+        }
+    </script>
+</body>
+</html> 
