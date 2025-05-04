@@ -1365,3 +1365,206 @@ body.dark-theme .ebook-search-input::placeholder {
 .offline-container button:hover {
     background-color: var(--primary-color-dark);
 }
+
+/* Mobile-specific styles */
+@media (max-width: 768px) {
+    :root {
+        --font-size-base: 16px;
+        --spacing-unit: 1rem;
+    }
+
+    body {
+        font-size: var(--font-size-base);
+        -webkit-tap-highlight-color: transparent;
+        -webkit-touch-callout: none;
+    }
+
+    .mobile-header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        padding: 1rem;
+        background: var(--bg-color);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .sidebar {
+        width: 85%;
+        max-width: 300px;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+    }
+
+    .sidebar.active {
+        transform: translateX(0);
+    }
+
+    .nav-links {
+        flex-direction: column;
+        padding: 1rem;
+    }
+
+    .nav-links li {
+        margin: 0.5rem 0;
+    }
+
+    .nav-links a {
+        padding: 0.75rem;
+        font-size: 1.1rem;
+    }
+
+    .tool-card, .course-card, .roadmap-card {
+        margin: 1rem 0;
+        padding: 1rem;
+    }
+
+    .tool-button, .course-button, .roadmap-button {
+        padding: 0.75rem 1.5rem;
+        font-size: 1rem;
+    }
+
+    /* Touch-friendly buttons */
+    button, .button {
+        min-height: 44px;
+        min-width: 44px;
+        padding: 0.75rem 1.5rem;
+    }
+
+    /* Mobile navigation */
+    .mobile-nav {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: var(--bg-color);
+        padding: 0.5rem;
+        display: flex;
+        justify-content: space-around;
+        box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .mobile-nav a {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0.5rem;
+        color: var(--text-color);
+        text-decoration: none;
+        font-size: 0.8rem;
+    }
+
+    .mobile-nav i {
+        font-size: 1.5rem;
+        margin-bottom: 0.25rem;
+    }
+
+    /* Pull-to-refresh prevention */
+    body {
+        overscroll-behavior-y: contain;
+    }
+
+    /* Mobile search */
+    .search-container {
+        margin: 1rem;
+    }
+
+    .search-input {
+        padding: 0.75rem;
+        font-size: 1rem;
+    }
+
+    /* Mobile content */
+    main {
+        padding: 1rem;
+        margin-top: 3.5rem;
+        margin-bottom: 3.5rem;
+    }
+
+    /* Mobile fullscreen content */
+    .fullscreen-box {
+        padding: 1rem;
+    }
+
+    .fullscreen-box-content {
+        padding: 1rem;
+    }
+
+    /* Mobile theme switcher */
+    .theme-switcher-container {
+        position: fixed;
+        bottom: 4rem;
+        right: 1rem;
+        z-index: 100;
+    }
+
+    /* Mobile offline page */
+    .offline-container {
+        padding: 1rem;
+    }
+
+    .offline-container h1 {
+        font-size: 2rem;
+    }
+
+    .offline-container p {
+        font-size: 1rem;
+    }
+
+    .offline-container button {
+        width: 100%;
+        max-width: 300px;
+    }
+}
+
+/* iOS-specific styles */
+@supports (-webkit-touch-callout: none) {
+    .mobile-nav {
+        padding-bottom: env(safe-area-inset-bottom);
+    }
+    
+    body {
+        padding-top: env(safe-area-inset-top);
+    }
+}
+
+/* Android-specific styles */
+@supports not (-webkit-touch-callout: none) {
+    .mobile-nav {
+        padding-bottom: 0.5rem;
+    }
+}
+
+/* Touch feedback */
+button:active, .button:active {
+    transform: scale(0.98);
+}
+
+/* Prevent text selection on buttons */
+button, .button {
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Mobile performance optimizations */
+* {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Mobile animations */
+@media (prefers-reduced-motion: no-preference) {
+    .tool-card, .course-card, .roadmap-card {
+        transition: transform 0.2s ease;
+    }
+    
+    .tool-card:active, .course-card:active, .roadmap-card:active {
+        transform: scale(0.98);
+    }
+}
