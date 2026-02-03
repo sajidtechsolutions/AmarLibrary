@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const sidebar = document.querySelector('.sidebar');
     const overlay = document.querySelector('.overlay');
     const searchInput = document.querySelector('.search-input');
-    const roadmapCards = document.querySelectorAll('.roadmap-card');
+    const toolCards = document.querySelectorAll('.tool-card');
 
     // Check for saved theme preference
     const savedTheme = localStorage.getItem('theme');
@@ -108,12 +108,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Search functionality
-    if (searchInput && roadmapCards.length > 0) {
+    if (searchInput && toolCards.length > 0) {
         searchInput.addEventListener('input', (e) => {
             const searchTerm = e.target.value.toLowerCase().trim();
-            roadmapCards.forEach(card => {
-                const title = card.querySelector('.roadmap-title').textContent.toLowerCase();
-                const description = card.querySelector('.roadmap-description').textContent.toLowerCase();
+            toolCards.forEach(card => {
+                const title = card.querySelector('.tool-title').textContent.toLowerCase();
+                const description = card.querySelector('.tool-description').textContent.toLowerCase();
                 if (title.includes(searchTerm) || description.includes(searchTerm)) {
                     card.style.display = 'flex';
                 } else {
@@ -124,7 +124,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Add animation to cards when they appear
-    if (roadmapCards.length > 0) {
+    if (toolCards.length > 0) {
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -135,7 +135,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }, {
             threshold: 0.1
         });
-        roadmapCards.forEach(card => {
+        toolCards.forEach(card => {
             card.style.opacity = '0';
             card.style.transform = 'translateY(20px)';
             card.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
