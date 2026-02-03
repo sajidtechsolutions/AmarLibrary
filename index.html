@@ -3,18 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Self Help Roadmaps</title>
+    <title>DailyFlow Offline Toolkit</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body class="dark-theme">
     <div class="overlay"></div>
     <aside class="sidebar">
         <nav class="sidebar-nav">
-            
+            <div class="sidebar-brand">
+                <span class="brand-mark">DF</span>
+                <div>
+                    <p class="brand-title">DailyFlow</p>
+                    <p class="brand-subtitle">Offline Toolkit</p>
+                </div>
+            </div>
+            <ul class="sidebar-links">
+                <li><a href="#dashboard">Dashboard</a></li>
+                <li><a href="#tools">Daily Tools</a></li>
+                <li><a href="#offline">Offline Library</a></li>
+                <li><a href="#insights">Insights</a></li>
+                <li><a href="#settings">Settings</a></li>
+            </ul>
             <div class="theme-switcher-container">
                 <button class="theme-toggle" aria-label="Toggle Theme">
                     <span class="theme-icon">🌙</span>
-                    <span class="theme-text">ডার্ক মোড</span>
+                    <span class="theme-text">Dark Mode</span>
                 </button>
             </div>
         </nav>
@@ -23,21 +36,158 @@
         <button class="sidebar-toggle" aria-label="Toggle Sidebar">
             <span class="hamburger"></span>
         </button>
+        <div class="header-brand">
+            <span class="brand-dot"></span>
+            <span class="brand-name">DailyFlow</span>
+        </div>
         <div class="search-container">
-            <input type="text" class="search-input" placeholder="রোডম্যাপ অনুসন্ধান করুন...">
+            <input type="text" class="search-input" placeholder="Search tools, checklists, guides...">
         </div>
     </header>
-    <main>
-        <div class="roadmaps-container">
-            <div class="roadmap-card">
-                <div class="roadmap-icon">⚡</div>
-                <div class="roadmap-details">
-                    <h3 class="roadmap-title">ডিসিপ্লিন VS মটিভেশন</h3>
-                    <p class="roadmap-description">মোটিভেশন নয়, অগ্রগতি: প্রমাণিত কৌশল ও ৩০টি চ্যালেঞ্জের মাধ্যমে গড়ে তুলুন অটল শৃঙ্খলা</p>
+    <main class="main-content">
+        <section class="hero" id="dashboard">
+            <div class="hero-card">
+                <p class="hero-eyebrow">Designed for offline-first Android web apps</p>
+                <h1>Your daily companion for work, home, and travel.</h1>
+                <p class="hero-description">
+                    Build routines, capture quick notes, track expenses, and keep essential utilities available without an internet connection.
+                </p>
+                <div class="hero-actions">
+                    <button class="primary-action">Create a daily plan</button>
+                    <button class="secondary-action">Browse offline library</button>
                 </div>
-                <a href="toc.html" class="roadmap-button">যাত্রা শুরু করুন</a>
             </div>
-        </div>
+            <div class="hero-status">
+                <div class="status-card">
+                    <p class="status-title">Offline status</p>
+                    <p class="status-value">Ready to sync</p>
+                    <p class="status-meta">Last update: 2 minutes ago</p>
+                </div>
+                <div class="status-card">
+                    <p class="status-title">Today’s focus</p>
+                    <p class="status-value">Family + Finance</p>
+                    <p class="status-meta">3 tools pinned</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="quick-actions">
+            <div class="section-header">
+                <h2>Quick actions</h2>
+                <p>Offline-ready tools for everyday life in the US and other western countries.</p>
+            </div>
+            <div class="action-grid">
+                <button class="action-card">
+                    <span class="action-icon">✅</span>
+                    <span class="action-title">Grocery list</span>
+                    <span class="action-subtitle">Smart aisles + pantry check</span>
+                </button>
+                <button class="action-card">
+                    <span class="action-icon">💸</span>
+                    <span class="action-title">Expense snapshot</span>
+                    <span class="action-subtitle">Track cash, cards, and tips</span>
+                </button>
+                <button class="action-card">
+                    <span class="action-icon">🚗</span>
+                    <span class="action-title">Commute planner</span>
+                    <span class="action-subtitle">Saved routes + parking notes</span>
+                </button>
+            </div>
+        </section>
+
+        <section class="tools-section" id="tools">
+            <div class="section-header">
+                <h2>Daily tools</h2>
+                <p>Tap any tool to open a focused, offline-friendly workflow.</p>
+            </div>
+            <div class="tools-container">
+                <article class="tool-card">
+                    <div class="tool-icon">📝</div>
+                    <h3 class="tool-title">Daily planner</h3>
+                    <p class="tool-description">Time blocks, reminders, and a priority dashboard with no data required.</p>
+                    <button class="tool-button">Open planner</button>
+                </article>
+                <article class="tool-card">
+                    <div class="tool-icon">🍽️</div>
+                    <h3 class="tool-title">Meal prep hub</h3>
+                    <p class="tool-description">Offline recipes, nutrition notes, and a portion calculator for busy weeks.</p>
+                    <button class="tool-button">Open recipes</button>
+                </article>
+                <article class="tool-card">
+                    <div class="tool-icon">🏡</div>
+                    <h3 class="tool-title">Home checklist</h3>
+                    <p class="tool-description">Maintain HVAC, grocery restocks, and seasonal reminders in one place.</p>
+                    <button class="tool-button">View checklist</button>
+                </article>
+                <article class="tool-card">
+                    <div class="tool-icon">📄</div>
+                    <h3 class="tool-title">Document vault</h3>
+                    <p class="tool-description">Store insurance cards, IDs, and emergency info securely offline.</p>
+                    <button class="tool-button">Open vault</button>
+                </article>
+                <article class="tool-card">
+                    <div class="tool-icon">💬</div>
+                    <h3 class="tool-title">Quick messages</h3>
+                    <p class="tool-description">Prewritten texts for school, work, and travel needs.</p>
+                    <button class="tool-button">Browse templates</button>
+                </article>
+                <article class="tool-card">
+                    <div class="tool-icon">🌤️</div>
+                    <h3 class="tool-title">Offline guides</h3>
+                    <p class="tool-description">Safety tips, local emergency numbers, and travel packing lists.</p>
+                    <button class="tool-button">Open library</button>
+                </article>
+            </div>
+        </section>
+
+        <section class="stats-section" id="insights">
+            <div class="section-header">
+                <h2>Today at a glance</h2>
+                <p>Useful summaries even when you are fully offline.</p>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <p class="stat-title">Tasks completed</p>
+                    <p class="stat-value">7</p>
+                    <p class="stat-meta">2 ahead of schedule</p>
+                </div>
+                <div class="stat-card">
+                    <p class="stat-title">Budget remaining</p>
+                    <p class="stat-value">$112</p>
+                    <p class="stat-meta">Based on weekly plan</p>
+                </div>
+                <div class="stat-card">
+                    <p class="stat-title">Offline storage</p>
+                    <p class="stat-value">1.3 GB</p>
+                    <p class="stat-meta">Docs + guides saved</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="offline-section" id="offline">
+            <div class="section-header">
+                <h2>Offline-first by design</h2>
+                <p>All critical tools stay available when the network drops.</p>
+            </div>
+            <div class="offline-grid">
+                <div class="offline-card">
+                    <h3>Smart sync</h3>
+                    <p>Data syncs automatically when Wi-Fi returns, with no manual steps.</p>
+                </div>
+                <div class="offline-card">
+                    <h3>Secure storage</h3>
+                    <p>Encrypt sensitive info locally and unlock with biometric auth.</p>
+                </div>
+                <div class="offline-card">
+                    <h3>Travel-ready</h3>
+                    <p>Keep itineraries, boarding passes, and notes even in airplane mode.</p>
+                </div>
+            </div>
+        </section>
+        <footer class="app-footer" id="settings">
+            <p>DailyFlow • Offline web app concept for Android</p>
+            <p>Designed for busy people in the US and western countries.</p>
+        </footer>
     </main>
     <script src="script.js"></script>
 </body>
